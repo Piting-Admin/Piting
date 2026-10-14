@@ -101,9 +101,53 @@ section { padding-block: 72px; border-top: 1px solid var(--line); }
 .pics .monitor .cap { font-size: 13px; }
 @media (max-width: 960px) { .station, .station.rev { grid-template-columns: 1fr; } .station.rev .txt { order: 0; } .station .txt { position: static; } .pics.two, .pics.mix { grid-template-columns: 1fr; } }
 
-/* Galerie */
-.gal { columns: 3 320px; column-gap: 14px; }
-.gal figure { break-inside: avoid; margin: 0 0 14px; }
+/* Social */
+.soc { display: inline-flex; gap: 6px; align-items: center; }
+.soc a { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 8px; color: var(--muted); }
+.soc a:hover { color: var(--fg); background: var(--panel-2); }
+.soc svg { width: 19px; height: 19px; }
+@media (max-width: 820px) { header .soc { display: none; } }
+
+/* Galerie: Diashow je Spiel */
+.gtabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.gtab { font: 700 14px var(--f-body); padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--muted); cursor: pointer; }
+.gtab.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.gtab.soon { cursor: default; opacity: .6; font-weight: 500; }
+.show { position: relative; }
+.show .stage { position: relative; height: min(72vh, 62.5vw); background: #08080a; display: grid; place-items: center; overflow: hidden; touch-action: pan-y; }
+.show .stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .5s ease; }
+.show .stage img.on { opacity: 1; }
+.show .nav-b { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: #000a; color: var(--fg); font: 700 24px/1 var(--f-body); cursor: pointer; display: grid; place-items: center; }
+.show .nav-b:hover { background: var(--accent); border-color: var(--accent); }
+.show .prev { left: 12px; } .show .next { right: 12px; }
+.show .meta { display: flex; gap: 14px; align-items: baseline; padding: 12px 16px; border-top: 1px solid var(--line); }
+.show .meta .no { font: 700 13px var(--f-mono); color: var(--accent); white-space: nowrap; }
+.show .meta .ct { color: #cfcfd5; font-size: 15px; }
+.show .prog { height: 3px; background: var(--line); }
+.show .prog i { display: block; height: 100%; width: 0; background: var(--accent); }
+.thumbs { display: flex; gap: 8px; overflow-x: auto; padding: 12px 2px 4px; scrollbar-width: thin; }
+.thumbs button { flex: 0 0 auto; width: 118px; aspect-ratio: 16 / 10; padding: 0; border: 2px solid transparent; border-radius: 8px; overflow: hidden; background: #08080a; cursor: pointer; opacity: .55; }
+.thumbs button.on { border-color: var(--accent); opacity: 1; }
+.thumbs button:hover { opacity: 1; }
+.thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 600px) { .show .nav-b { width: 38px; height: 38px; font-size: 20px; } .thumbs button { width: 92px; } }
+
+/* Kaufen */
+.buy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 28px; align-items: start; }
+.buy .pitch { background: linear-gradient(120deg, color-mix(in srgb, var(--accent) 22%, var(--panel)), var(--panel) 55%); border: 1px solid var(--line); border-radius: 18px; padding: 36px; display: flex; flex-direction: column; gap: 14px; }
+.buy .pitch h2 { font-size: clamp(32px, 4vw, 50px); }
+.buy .pitch p { color: #c4c4ca; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+.card .pn { font: 800 26px/1.1 var(--f-display); }
+.card .price { font: 800 54px/1 var(--f-display); }
+.card .price small { font: 500 15px var(--f-body); color: var(--muted); margin-left: 8px; }
+.card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.card li { display: flex; gap: 10px; color: #cfcfd5; font-size: 15px; }
+.card li::before { content: ""; flex: 0 0 auto; width: 10px; height: 10px; margin-top: 7px; border-radius: 2px; background: var(--green); }
+.card .btn { justify-content: center; }
+.card .btn[disabled] { opacity: .7; cursor: not-allowed; filter: none; }
+.card .fine { color: var(--muted); font-size: 13px; }
+@media (max-width: 860px) { .buy { grid-template-columns: 1fr; } .buy .pitch { padding: 24px; } }
 
 /* Einrichtung */
 .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
@@ -126,7 +170,8 @@ section { padding-block: 72px; border-top: 1px solid var(--line); }
 .dl .btn[disabled] { opacity: .85; cursor: not-allowed; }
 @media (max-width: 760px) { .dl { grid-template-columns: 1fr; padding: 24px; } }
 footer { border-top: 1px solid var(--line); padding-block: 32px 40px; color: var(--muted); font-size: 13px; }
-footer .row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; }
+footer .row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
+footer .soc a { color: var(--muted); }
 
 /* Großansicht */
 .lb[hidden] { display: none; }
@@ -145,7 +190,7 @@ footer .row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-
       <svg viewBox="0 0 124 124" aria-hidden="true"><rect width="124" height="124" rx="28" fill="#161616" stroke="#2c2c2c" stroke-width="2"/><path d="M30 70 a32 32 0 0 1 64 0" fill="none" stroke="#e10600" stroke-width="9" stroke-linecap="round"/><rect x="22" y="64" width="18" height="30" rx="7" fill="#f2f2f2"/><rect x="84" y="64" width="18" height="30" rx="7" fill="#f2f2f2"/><path d="M93 94 q0 16 -24 16 h-8" fill="none" stroke="#f2f2f2" stroke-width="5" stroke-linecap="round"/><circle cx="58" cy="110" r="6" fill="#e10600"/><path d="M50 46 q12 -10 24 0" fill="none" stroke="#8d8d8d" stroke-width="4" stroke-linecap="round"/><path d="M44 36 q18 -16 36 0" fill="none" stroke="#5a5a5a" stroke-width="4" stroke-linecap="round"/></svg>
       <b>Pit<span>Ing</span></b>
     </a>
-    <nav><a href="#tool">Das Tool</a><a href="#galerie">Galerie</a><a href="#setup">Einrichtung</a><a class="cta" href="#download">Download</a></nav>
+    <nav><a href="#tool">Das Tool</a><a href="#galerie">Galerie</a><a href="#setup">Einrichtung</a><span class="soc"><a href="https://www.tiktok.com/@piting512" target="_blank" rel="noopener" aria-label="PitIng auf TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3h3c.3 2 1.7 3.5 3.5 3.7v3.1c-1.3 0-2.5-.4-3.5-1v6.4c0 3.2-2.6 5.8-5.8 5.8S6 18.4 6 15.2s2.6-5.8 5.8-5.8c.3 0 .6 0 .9.1v3.2a2.7 2.7 0 1 0 1.8 2.5V3z" fill="currentColor"/></svg></a><a href="https://www.instagram.com/info.piting/" target="_blank" rel="noopener" aria-label="PitIng auf Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></a><a href="https://discord.gg/A9USvTdSN" target="_blank" rel="noopener" aria-label="PitIng-Discord" title="Discord"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.3 5.4A16 16 0 0 0 15.4 4l-.5 1a14.6 14.6 0 0 0-5.8 0l-.5-1a16 16 0 0 0-3.9 1.4C2.2 9.1 1.6 12.8 1.9 16.4c1.6 1.2 3.2 1.9 4.8 2.4l1.1-1.6c-.6-.2-1.2-.5-1.7-.9l.4-.3c3.3 1.5 6.9 1.5 10.1 0l.4.3c-.5.4-1.1.7-1.7.9l1.1 1.6c1.6-.5 3.2-1.2 4.8-2.4.4-4.2-.6-7.9-1.9-11zM8.7 14.3c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.6 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z" fill="currentColor"/></svg></a></span><a class="cta" href="#kaufen">Kaufen</a></nav>
   </div>
 </header>
 
@@ -158,14 +203,14 @@ footer .row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-
       </div>
       <div>
         <p class="sub">PitIng liest die UDP-Telemetrie aus F1® 25 und F1® 26 und zeigt alles, was ein Renningenieur braucht: Fahrerkarten mit Schäden und Reifen, Live-Streams, Circle of Doom, Wetter, Strategie und Boxenstopp-Duelle – auf einem Bildschirm.</p>
-        <div class="ctas"><a class="btn primary" href="#download">Download für Windows</a><a class="btn" href="#tool">Alle Ansichten</a></div>
+        <div class="ctas"><a class="btn primary" href="#kaufen">PitIng kaufen</a><a class="btn" href="#tool">Alle Ansichten</a></div>
       </div>
     </div>
     <figure class="monitor">
-      <div class="mon-top"><span class="live"><i></i>LIVE</span><span>DRIVER TRACKING · KURZES QUALIFYING</span><span class="t">Fahrerkarten · POV Driver · POV Race · Circle of Doom · Wetter</span></div>
-      <img src="img/hero.webp" data-k="hero" width="1800" height="1075" alt="PitIng im Liga-Einsatz: drei Fahrerkarten, zwei Live-Bildschirme, Circle of Doom und Wetter" data-cap="Driver Tracking im echten Liga-Einsatz: Fahrer davor, eigener Fahrer und Fahrer dahinter, zwei Bildschirme (POV Driver und POV Race), Circle of Doom mit Boxen-Fenster und Wettervorhersage">
+      <div class="mon-top"><span class="live"><i></i>LIVE</span><span>DRIVER TRACKING · RENNEN</span><span class="t">Fahrerkarten · POV Driver · POV Race · Circle of Doom · Wetter</span></div>
+      <img src="img/hero.webp" data-k="hero" width="1800" height="1075" alt="PitIng Driver Tracking: drei Fahrerkarten, zwei Live-Bildschirme, Circle of Doom und Wetter" data-cap="Driver Tracking: Fahrer davor, eigener Fahrer und Fahrer dahinter, zwei Bildschirme (POV Driver und POV Race), Circle of Doom mit Boxen-Fenster und Wetter">
       <div class="strip" id="strip" aria-hidden="true"></div>
-      <figcaption class="cap">Driver Tracking im echten Liga-Einsatz – Fahrerkarten, zwei Bildschirme (POV Driver und Race-Stream), Circle of Doom mit Boxen-Fenster und Wettervorhersage.</figcaption>
+      <figcaption class="cap">Driver Tracking – Fahrerkarten, zwei Bildschirme (POV Driver und Race-Stream), Circle of Doom mit Boxen-Fenster und Wettervorhersage.</figcaption>
     </figure>
     <div class="kpis">
       <div><b>15+</b><span>Ansichten</span></div>
@@ -252,8 +297,14 @@ footer .row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-
 
   <section id="galerie">
     <div class="wrap">
-      <div class="sec-h"><div class="eyebrow">Galerie</div><h2>Alle Ansichten</h2><p>Klick auf ein Bild für die Großansicht.</p></div>
-      <div class="gal" id="gal"></div>
+      <div class="sec-h"><div class="eyebrow">Galerie</div><h2>Alle Ansichten</h2><p>In der Reihenfolge des Programms – läuft automatisch, mit ‹ › oder den Vorschaubildern selbst durchklicken.</p></div>
+      <div class="gtabs" id="gtabs" role="tablist"></div>
+      <div class="show monitor" id="show">
+        <div class="stage" id="stage"><button class="nav-b prev" type="button" aria-label="Vorheriges Bild">‹</button><button class="nav-b next" type="button" aria-label="Nächstes Bild">›</button></div>
+        <div class="prog"><i id="prog"></i></div>
+        <div class="meta"><span class="no" id="gno"></span><span class="ct" id="gct"></span></div>
+      </div>
+      <div class="thumbs" id="thumbs"></div>
     </div>
   </section>
 
@@ -261,7 +312,7 @@ footer .row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-
     <div class="wrap">
       <div class="sec-h"><div class="eyebrow">Einrichtung</div><h2>In drei Schritten startklar</h2></div>
       <div class="steps">
-        <div class="step"><div class="n">1</div><h3>Herunterladen &amp; entpacken</h3><p>ZIP entpacken und PitIng.exe starten. Keine Installation, kein Python nötig.</p></div>
+        <div class="step"><div class="n">1</div><h3>Kaufen &amp; entpacken</h3><p>Nach dem Kauf die ZIP herunterladen, entpacken und PitIng.exe starten. Keine Installation, kein Python nötig.</p></div>
         <div class="step"><div class="n">2</div><h3>Telemetrie im Spiel einschalten</h3><p>Einstellungen → Telemetrie: UDP an, Port 20777, als IP die Adresse des PCs mit PitIng – zum Beispiel eure Radmin-VPN-IP.</p></div>
         <div class="step"><div class="n">3</div><h3>Fahrer wählen &amp; Aufnahme starten</h3><p>Fahrerprofil mit IP aktivieren und „Aufnahme starten“ klicken – die Daten laufen live ein.</p></div>
       </div>
@@ -269,34 +320,90 @@ footer .row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-
     </div>
   </section>
 
-  <section id="download">
+  <section id="kaufen">
     <div class="wrap">
-      <div class="dl">
-        <div><div class="eyebrow">Box, Box</div><h2>PitIng herunterladen</h2><div class="ver">Version 81 · Windows 10/11 · 64-Bit</div>
-          <p class="note">Den ganzen Ordner entpacken – PitIng.exe braucht den Ordner _internal daneben. Bei einer Warnung von Windows SmartScreen: „Weitere Informationen“ → „Trotzdem ausführen“.</p></div>
-        <a class="btn primary" href="https://github.com/DEINNAME/piting/releases/latest/download/PitIng.zip">PitIng.zip herunterladen</a>
+      <div class="buy">
+        <div class="pitch"><div class="eyebrow">Box, Box</div><h2>PitIng kaufen</h2>
+          <p>Ein Kauf, dauerhaft nutzbar – kein Abo. Nach dem Kauf erhältst du den Download für Windows.</p>
+          <p class="fine" style="color:var(--muted);font-size:14px">Den ganzen Ordner entpacken – PitIng.exe braucht den Ordner _internal daneben. Bei einer Warnung von Windows SmartScreen: „Weitere Informationen“ → „Trotzdem ausführen“.</p></div>
+        <div class="card">
+          <div class="eyebrow">Einmalkauf</div>
+          <div class="pn">PitIng für F1® 25 / 26</div>
+          <div class="price">€ —<small>Preis folgt</small></div>
+          <ul><li>Alle Ansichten: Driver &amp; Grid Tracking, Qualifying, Strategie, Circle of Doom, Wetter &amp; Reifen, Setups</li><li>Bis zu sechs Fahrer parallel</li><li>Simulation zum Ausprobieren ohne Spiel</li><li>Windows 10/11 · 64-Bit</li></ul>
+          <button class="btn primary" type="button" disabled>Kaufen – bald verfügbar</button>
+          <p class="fine">Fragen? <a href="mailto:info.piting@gmail.com">info.piting@gmail.com</a> oder auf <a href="https://discord.gg/A9USvTdSN" target="_blank" rel="noopener">Discord</a>.</p>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
-<footer><div class="wrap row"><span>© 2026 PitIng · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span><span style="max-width:62em">PitIng ist ein unabhängiges Fan-Projekt und steht in keiner Verbindung zur Formula One Group, zur FIA oder zu Electronic Arts. F1® ist eine Marke der Formula One Licensing B.V.</span></div></footer>
+<footer><div class="wrap row"><span>© 2026 PitIng · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span><span class="soc"><a href="https://www.tiktok.com/@piting512" target="_blank" rel="noopener" aria-label="PitIng auf TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3h3c.3 2 1.7 3.5 3.5 3.7v3.1c-1.3 0-2.5-.4-3.5-1v6.4c0 3.2-2.6 5.8-5.8 5.8S6 18.4 6 15.2s2.6-5.8 5.8-5.8c.3 0 .6 0 .9.1v3.2a2.7 2.7 0 1 0 1.8 2.5V3z" fill="currentColor"/></svg></a><a href="https://www.instagram.com/info.piting/" target="_blank" rel="noopener" aria-label="PitIng auf Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></a><a href="https://discord.gg/A9USvTdSN" target="_blank" rel="noopener" aria-label="PitIng-Discord" title="Discord"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.3 5.4A16 16 0 0 0 15.4 4l-.5 1a14.6 14.6 0 0 0-5.8 0l-.5-1a16 16 0 0 0-3.9 1.4C2.2 9.1 1.6 12.8 1.9 16.4c1.6 1.2 3.2 1.9 4.8 2.4l1.1-1.6c-.6-.2-1.2-.5-1.7-.9l.4-.3c3.3 1.5 6.9 1.5 10.1 0l.4.3c-.5.4-1.1.7-1.7.9l1.1 1.6c1.6-.5 3.2-1.2 4.8-2.4.4-4.2-.6-7.9-1.9-11zM8.7 14.3c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.6 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z" fill="currentColor"/></svg></a></span><span style="max-width:62em">PitIng ist unabhängige Software und steht in keiner Verbindung zur Formula One Group, zur FIA, zu Electronic Arts oder Codemasters. F1® ist eine Marke der Formula One Licensing B.V.</span></div></footer>
 
 <div class="lb" id="lb" hidden><button type="button" id="lbx">Schließen ✕</button><figure style="margin:0"><img id="lbimg" alt=""><p id="lbcap"></p></figure></div>
 
 <script>
-const GAL = ["hero", "track", "car", "circle", "grid", "cards", "pos", "map", "strat", "pit", "duel", "catch", "weather", "wxfc", "quali", "qdrv", "setups", "game"];
-const gal = document.getElementById("gal");
-const src = {};
-document.querySelectorAll("#top img[data-cap]").forEach((im) => { const k = im.getAttribute("src"); src[k] = im.dataset.cap; });
-gal.innerHTML = GAL.map((k) => { const im = document.querySelector(`img[data-k="${k}"]`); return im ? `<figure class="monitor"><img src="${im.src}" alt="${im.alt}" data-cap="${im.dataset.cap}" loading="lazy"><figcaption class="cap">${im.dataset.cap}</figcaption></figure>` : ""; }).join("");
+// Galerie je Spiel – Reihenfolge wie im Programm. Neues Spiel = neuer Eintrag in GAMES.
+const GAMES = [
+  { id: "f1", label: "F1® 25 / 26", items: ["game", "grid", "cards", "pos", "map", "quali", "qdrv", "hero", "track", "car", "strat", "pit", "duel", "circle", "catch", "weather", "wxfc", "setups"] },
+];
+const SOON = "Weitere Spiele folgen";
+const DELAY = 5000;
+const stage = document.getElementById("stage"), thumbs = document.getElementById("thumbs"), gno = document.getElementById("gno"), gct = document.getElementById("gct"), prog = document.getElementById("prog"), gtabs = document.getElementById("gtabs");
+let list = [], cur = 0, timer = null, t0 = 0, paused = false, holdUntil = 0;
+const motion = !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+function meta(k) { const im = document.querySelector(`#tool img[data-k="${k}"], .hero ~ figure img[data-k="${k}"], img[data-k="${k}"]`); return im ? { src: im.getAttribute("src"), alt: im.alt, cap: im.dataset.cap } : null; }
+function loadGame(g) {
+  list = g.items.map(meta).filter(Boolean);
+  stage.querySelectorAll("img").forEach((i) => i.remove());
+  list.forEach((m, i) => { const im = document.createElement("img"); im.src = m.src; im.alt = m.alt; im.dataset.cap = m.cap; if (i > 1) im.loading = "lazy"; stage.appendChild(im); });
+  thumbs.innerHTML = list.map((m, i) => `<button type="button" aria-label="Bild ${i + 1}: ${m.alt}"><img src="${m.src}" alt="" loading="lazy"></button>`).join("");
+  thumbs.querySelectorAll("button").forEach((b, i) => (b.onclick = () => { go(i); hold(); }));
+  gtabs.querySelectorAll(".gtab[data-g]").forEach((b) => b.classList.toggle("on", b.dataset.g === g.id));
+  go(0);
+}
+function go(i) {
+  cur = (i + list.length) % list.length;
+  stage.querySelectorAll("img").forEach((im, k) => im.classList.toggle("on", k === cur));
+  thumbs.querySelectorAll("button").forEach((b, k) => b.classList.toggle("on", k === cur));
+  const tb = thumbs.children[cur]; if (tb) thumbs.scrollTo({ left: tb.offsetLeft - thumbs.clientWidth / 2 + tb.clientWidth / 2, behavior: motion ? "smooth" : "auto" });
+  gno.textContent = `${String(cur + 1).padStart(2, "0")} / ${String(list.length).padStart(2, "0")}`;
+  gct.textContent = list[cur].cap;
+  t0 = performance.now();
+}
+function hold() { holdUntil = performance.now() + 10000; t0 = performance.now(); }
+function tick(now) {
+  const stop = paused || now < holdUntil || !lb.hidden || !motion;
+  if (stop) { prog.style.width = "0"; t0 = now; }
+  else { const f = (now - t0) / DELAY; prog.style.width = Math.min(100, f * 100) + "%"; if (f >= 1) go(cur + 1); }
+  requestAnimationFrame(tick);
+}
+gtabs.innerHTML = GAMES.map((g) => `<button class="gtab" type="button" role="tab" data-g="${g.id}">${g.label}</button>`).join("") + `<span class="gtab soon">${SOON}</span>`;
+gtabs.querySelectorAll(".gtab[data-g]").forEach((b) => (b.onclick = () => loadGame(GAMES.find((g) => g.id === b.dataset.g))));
+stage.querySelector(".prev").onclick = (e) => { e.stopPropagation(); go(cur - 1); hold(); };
+stage.querySelector(".next").onclick = (e) => { e.stopPropagation(); go(cur + 1); hold(); };
+const show = document.getElementById("show");
+show.addEventListener("mouseenter", () => (paused = true));
+show.addEventListener("mouseleave", () => { paused = false; t0 = performance.now(); });
+let sx = null;
+stage.addEventListener("pointerdown", (e) => { sx = e.clientX; });
+stage.addEventListener("pointerup", (e) => { if (sx === null) return; const d = e.clientX - sx; sx = null; if (Math.abs(d) > 40) { go(cur + (d < 0 ? 1 : -1)); hold(); stage.dataset.swiped = "1"; setTimeout(() => delete stage.dataset.swiped, 50); } });
+document.addEventListener("keydown", (e) => {
+  if (!lb.hidden) return;
+  const r = show.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+  if (e.key === "ArrowRight") { go(cur + 1); hold(); } if (e.key === "ArrowLeft") { go(cur - 1); hold(); }
+});
 const lb = document.getElementById("lb"), lbimg = document.getElementById("lbimg"), lbcap = document.getElementById("lbcap");
 document.addEventListener("click", (e) => {
   const im = e.target.closest(".monitor img");
+  if (im && stage.dataset.swiped) return;
   if (im) { lbimg.src = im.src; lbimg.alt = im.alt; lbcap.textContent = im.dataset.cap || im.alt; lb.hidden = false; return; }
   if (!lb.hidden && (e.target === lb || e.target.id === "lbx" || e.target === lbimg)) lb.hidden = true;
 });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") lb.hidden = true; });
+loadGame(GAMES[0]);
+requestAnimationFrame(tick);
 const strip = document.getElementById("strip");
 strip.innerHTML = Array.from({ length: 25 }, () => "<i></i>").join("");
 const SEQ = "gggpgggyggggpggggyggggpgg", COL = { p: "var(--purple)", g: "var(--green)", y: "var(--yellow)" }, cells = [...strip.children];
