@@ -49,8 +49,8 @@ nav { display: flex; gap: 22px; margin-left: auto; align-items: center; }
 nav a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: 15px; }
 nav a:hover { color: var(--fg); }
 nav a.cta { color: var(--accent-ink); background: var(--accent); padding: 7px 14px; border-radius: 8px; font-weight: 700; }
-nav a.cta.demo { color: var(--fg); background: transparent; border: 1px solid var(--line); margin-left: 4px; }
-nav a.cta.demo:hover { border-color: var(--muted); }
+nav a.cta.demo { color: #111; background: #FFD400; margin-left: 4px; }
+nav a.cta.demo:hover { background: #FFE14D; }
 @media (max-width: 820px) { nav a:not(.cta) { display: none; } }
 
 /* Hero */
@@ -62,6 +62,8 @@ nav a.cta.demo:hover { border-color: var(--muted); }
 .btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; border-radius: 10px; font: 700 15px var(--f-body); text-decoration: none; border: 1px solid var(--line); background: var(--panel-2); color: var(--fg); cursor: pointer; }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .btn:hover { filter: brightness(1.1); }
+.btn.demo { background: #FFD400; border-color: #FFD400; color: #111; }
+.btn.demo:hover { background: #FFE14D; border-color: #FFE14D; filter: none; }
 @media (max-width: 960px) { .hero { grid-template-columns: 1fr; gap: 18px; padding-block: 36px 20px; } }
 
 .monitor { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 30px 70px -24px #000d; margin: 0; }
@@ -205,7 +207,7 @@ footer .soc a { color: var(--muted); }
       </div>
       <div>
         <p class="sub">PitIng liest die UDP-Telemetrie aus F1® 25 und F1® 26 und zeigt alles, was ein Renningenieur braucht: Fahrerkarten mit Schäden und Reifen, Live-Streams, Circle of Doom, Wetter, Strategie und Boxenstopp-Duelle – auf einem Bildschirm.</p>
-        <div class="ctas"><a class="btn primary" href="https://github.com/Piting-Admin/Piting/releases/latest/download/PitIng.zip">Demo kostenlos laden</a><a class="btn" href="#tool">Alle Ansichten</a></div>
+        <div class="ctas"><a class="btn demo" href="https://github.com/Piting-Admin/Piting/releases/latest/download/PitIng.zip">Demo kostenlos laden</a><a class="btn" href="#tool">Alle Ansichten</a></div>
       </div>
     </div>
     <figure class="monitor">
@@ -334,7 +336,7 @@ footer .soc a { color: var(--muted); }
           <div class="price">9,99 €<small>kein Abo</small></div>
           <ul><li>Alle Ansichten: Driver &amp; Grid Tracking, Qualifying, Strategie, Circle of Doom, Wetter &amp; Reifen, Setups</li><li>Bis zu sechs Fahrer parallel</li><li>Simulation zum Ausprobieren ohne Spiel</li><li>Windows 10/11 · 64-Bit</li></ul>
           <button class="btn primary" type="button" disabled>Shop startet bald</button>
-          <a class="btn" href="https://github.com/Piting-Admin/Piting/releases/latest/download/PitIng.zip" style="margin-top:10px">Demo kostenlos laden</a>
+          <a class="btn demo" href="https://github.com/Piting-Admin/Piting/releases/latest/download/PitIng.zip" style="margin-top:10px">Demo kostenlos laden</a>
           <p class="fine">Fragen? <a href="mailto:info.piting@gmail.com">info.piting@gmail.com</a> oder auf <a href="https://discord.gg/A9USvTdSN" target="_blank" rel="noopener">Discord</a>.</p>
         </div>
       </div>
