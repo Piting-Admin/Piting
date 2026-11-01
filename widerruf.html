@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Widerrufsbelehrung – PitIng</title><link rel="icon" href="img/favicon.png"><style>
+:root{color-scheme:dark;--bg:#0b0b0c;--panel:#141415;--line:#2a2a2d;--fg:#ececee;--muted:#9b9ba3;--accent:#e10600}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.65 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 20px 60px}
+a{color:var(--fg)} a.back{color:var(--muted);text-decoration:none;font-size:14px}
+h1{font:800 44px/1.05 "Bahnschrift SemiCondensed",Bahnschrift,"Arial Narrow",sans-serif;margin:18px 0 24px}
+h2{font:700 22px/1.2 "Segoe UI",system-ui,sans-serif;margin:30px 0 8px}
+p,li{color:#d4d4da} .ph{background:#3a1110;color:#ffb4b0;padding:0 4px;border-radius:4px}
+.note{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:12px 16px;color:var(--muted);font-size:14px}
+[hidden]{display:none!important}
+ol,ul{padding-left:1.4em}li{margin:6px 0}
+.links{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}.links a{color:var(--muted)}
+.box{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:18px 20px;margin:18px 0}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:9px;padding:11px 20px;font:700 15px "Segoe UI",sans-serif;cursor:pointer;text-decoration:none}
+.btn.sec{background:#262626;border:1px solid #3a3a3a}
+label{display:block;margin:12px 0 4px;font-weight:600}input,textarea{width:100%;box-sizing:border-box;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:inherit}
+.m{color:var(--muted);font-size:14px}
+</style></head>
+<body><div class="wrap">
+<a class="back" href="index.html">← Zurück zur Startseite</a>
+<h1>Widerrufsbelehrung</h1>
+<p class="m">Stand: 01.11.2026</p>
+<div class="box" id="widerrufen"><h2 style="margin-top:0">Vertrag widerrufen</h2>
+<p>Hier kannst du deinen Vertrag elektronisch widerrufen. Wir bestätigen dir den Eingang sofort per E-Mail.</p>
+<p class="m">Hinweis: Hast du beim Kauf der sofortigen Bereitstellung zugestimmt, ist das Widerrufsrecht mit der Zusendung des Lizenzschlüssels erloschen (siehe unten). Schreib uns bei Problemen trotzdem gern – wir finden eine Lösung.</p>
+<button class="btn" type="button" id="wbtn" onclick="document.getElementById('wform').hidden=false;this.hidden=true">Vertrag widerrufen</button>
+<form id="wform" method="post" action="https://piting-license.info-piting.workers.dev/widerruf" hidden>
+<input type="hidden" name="lang" value="de">
+<label for="wname">Name</label><input id="wname" name="name" required autocomplete="name">
+<label for="wmail">E-Mail-Adresse (für die Eingangsbestätigung)</label><input id="wmail" name="email" type="email" required autocomplete="email">
+<label for="word">Bestellnummer oder Lizenzschlüssel</label><input id="word" name="bestellung" required placeholder="PIT-2026-0001 oder PITG-XXXX-XXXX-XXXX">
+<label for="wmsg">Nachricht (optional)</label><textarea id="wmsg" name="nachricht" rows="3"></textarea>
+<p style="margin-top:16px"><button class="btn" type="submit">Widerruf bestätigen</button></p>
+</form></div>
+<h2>Widerrufsrecht</h2>
+<p>Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses.</p>
+<p>Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (Thomas Kronseder, PitIng, Stiftsbogen 138, 81375 München, E-Mail: info.piting@gmail.com) mittels einer eindeutigen Erklärung (z. B. ein mit der Post versandter Brief oder eine E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist. Sie können den Widerruf auch über die Schaltfläche „Vertrag widerrufen“ auf piting.de/widerruf.html erklären; wir bestätigen Ihnen dann unverzüglich den Eingang per E-Mail.</p>
+<p>Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.</p>
+<h2>Folgen des Widerrufs</h2>
+<p>Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.</p>
+<h2>Vorzeitiges Erlöschen des Widerrufsrechts</h2>
+<p>Ihr Widerrufsrecht erlischt vorzeitig, wenn wir mit der Bereitstellung der digitalen Inhalte (Lizenzschlüssel und Download) begonnen haben, nachdem Sie ausdrücklich zugestimmt haben, dass wir vor Ablauf der Widerrufsfrist mit der Bereitstellung beginnen, Sie Ihre Kenntnis davon bestätigt haben, dass Sie durch Ihre Zustimmung mit Beginn der Bereitstellung Ihr Widerrufsrecht verlieren, und wir Ihnen eine Bestätigung auf einem dauerhaften Datenträger zur Verfügung gestellt haben.</p>
+<h2>Muster-Widerrufsformular</h2>
+<p>(Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.)</p>
+<ul><li>An Thomas Kronseder, PitIng, Stiftsbogen 138, 81375 München, E-Mail: info.piting@gmail.com:</li><li>Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über die Bereitstellung der folgenden digitalen Inhalte: PitIng-Lizenz, Bestellnummer: ______</li><li>Bestellt am (*) ______</li><li>Name des/der Verbraucher(s) ______</li><li>Anschrift des/der Verbraucher(s) ______</li><li>Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier) ______</li><li>Datum ______</li></ul>
+<p>(*) Unzutreffendes streichen.</p>
+<div class="links"><a href="index.html">Startseite</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="agb.html">AGB</a> · <a href="widerruf.html">Widerrufsbelehrung</a> · <a href="lizenz.html">Lizenzbedingungen</a> · <a href="widerruf.html#widerrufen">Vertrag widerrufen</a></div>
+</div></body></html>
